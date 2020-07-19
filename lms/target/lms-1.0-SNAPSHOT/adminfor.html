@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layuiAdmin 管理员 iframe 框</title>
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="" >
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/test/style/admin.css" >
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"/>`
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/test/layui/css/modules/layer/default/layer.css?v=3.1.1">
+</head>
+<body>
+
+  <div class="layui-form" lay-filter="layuiadmin-form-admin" id="layuiadmin-form-admin" style="padding: 20px 30px 0 0;">
+        <input type="hidden" name="method" value="adduser">
+    <div class="layui-form-item">
+      <label class="layui-form-label">用户登录名</label>
+      <div class="layui-input-inline">
+        <input style="width: auto" type="text" name="username" lay-verify="required|username" autocomplete="off" placeholder="请输入用户名" class="layui-input" >
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">密码</label>
+      <div class="layui-input-inline">
+        <input style="width: 190px" type="password" name="password" lay-verify="required|password" placeholder="请输入6~10位数字或字母" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">权限</label>
+      <div class="layui-input-block" style="width: 162px">
+        <select name="permission" lay-filter="">
+
+          <option value="2">配送点管理员</option>
+          <option value="3">配送点操作员</option>
+
+        </select>
+      </div>
+    </div>
+
+    <div class="layui-form-item ">
+      <label class="layui-form-label">所在配送点</label>
+      <div class="layui-input-block">
+        <input style="width: auto" type="text" name="dsname" lay-verify="required|deliverspot" autocomplete="off" placeholder="请输入所在配送点" class="layui-input">
+      </div>
+    </div>
+
+    <div class="layui-form-item ">
+      <label class="layui-form-label">员工编号</label>
+      <div class="layui-input-block">
+        <input style="width: 130px" type="text" name="empno" lay-verify="required|empnno" autocomplete="off" placeholder="请输入编号" class="layui-input">
+      </div>
+    </div>
+<!--    <div class="layui-form-item">-->
+<!--      <label class="layui-form-label">审核状态</label>-->
+<!--      <div class="layui-input-inline">-->
+<!--        <input type="checkbox" lay-filter="switch" name="switch" lay-skin="switch" lay-text="通过|待审核">-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="layui-form-item layui-hide">
+      <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-back-submit" value="确认">
+    </div>
+  </div>
+
+  <script src="../../../layuiadmin/layui/layui.js"></script>  
+  <script>
+  layui.config({
+    base: '../../../layuiadmin/' //静态资源所在路径
+  }).extend({
+    index: 'lib/index' //主入口模块
+  }).use(['index', 'form'], function(){
+    var $ = layui.$
+    ,form = layui.form ;
+  })
+  </script>
+</body>
+</html>
